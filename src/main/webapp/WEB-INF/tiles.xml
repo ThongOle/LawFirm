@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+<!-- Khai báo template admin -->
+	<definition name="baseLayoutAdmin"
+		template="/WEB-INF/admin/layout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header"
+			value="/WEB-INF/admin/header.jsp" />
+		<put-attribute name="sidebar"
+			value="/WEB-INF/admin/sidebar.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/admin/body.jsp" />
+	</definition>
+	<definition name="test"
+		extends="baseLayoutAdmin">
+		<put-attribute name="title"
+			value="Quản trị người dùng - ZNA LawFirm" />
+		<put-attribute name="body"
+			value="/admin/TrangChu.jsp" />
+	</definition>
+	<definition name="quanLyPhanQuyen"
+		extends="baseLayoutAdmin">
+		<put-attribute name="title"
+			value="Quản lý phân quyền - ZNA LawFirm" />
+		<put-attribute name="body"
+			value="/admin/QuanLyPhanQuyen.jsp" />
+	</definition>
+	<definition name="quanLyBaiViet"
+		extends="baseLayoutAdmin">
+		<put-attribute name="title"
+			value="Quản lý bài viết - ZNA LawFirm" />
+		<put-attribute name="body"
+			value="/admin/DanhSachBaiViet.jsp" />
+	</definition>
+	<definition name="baiVietAdd" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Thêm mới Bài Viết - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/BaiVietAdd.jsp" />
+	</definition>
+	<definition name="dsNhatKy" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Danh sách nhật ký - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/DanhSachNhatKy.jsp" />
+	</definition>
+	<definition name="nhatKyDetail" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Chi Tiết Nhật ký - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/NhatKyDetail.jsp" />
+	</definition> 
+	<definition name="dsChuDe" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Danh sách chủ đề - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/DanhSachChuDe.jsp" />
+	</definition>
+	<definition name="chuDeDetail" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Chi tiết chủ đề - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/ChuDeDetail.jsp" />
+	</definition>
+	<definition name="dsluatsu" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Danh Sách luật sư - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/DsLuatSu.jsp" />
+	</definition>
+	<definition name="luatsuadd" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Chi Tiết Luật sư - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/LuatSuAdd.jsp" />
+	</definition>
+	<definition name="dsContact" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Danh sách contact - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/Contact.jsp" />
+	</definition>
+	<definition name="chiTietContact" extends="baseLayoutAdmin">
+	<put-attribute name="title"
+		value="Danh sách contact - ZNA LawFirm" />
+	<put-attribute name="body" value="/admin/ContactDetail.jsp" />
+	</definition>
+	<!-- Trang chủ -->
+	<definition name="baseLayoutHome"
+		template="/WEB-INF/home/layout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header"
+			value="/WEB-INF/home/header.jsp"/>
+		<put-attribute name="heroArea"
+			value="/WEB-INF/home/heroArea.jsp"/>
+		<put-attribute name="body"
+			value="/WEB-INF/home/body.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/home/footer.jsp" />
+	</definition>
+	<definition name="trangChu"
+		extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Trang Chủ - ZNA LawFirm" />
+		<put-attribute name="body"
+			value="/home/TrangChu.jsp" />
+	</definition>
+	<definition name="hienThiLienHe"
+		extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Contact - ZNA LawFirm" />
+		<put-attribute name="body"
+			value="/home/Contact.jsp" />
+	</definition>
+	<definition name="gioiThieu"
+		extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Contact - ZNA LawFirm" />
+		<put-attribute name="heroArea" value="/WEB-INF/home/body.jsp"/>
+		<put-attribute name="body"
+			value="/home/GioiThieu.jsp" />
+	</definition>
+	<definition name="dsDichVu"
+		extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Dịch vụ - ZNA LawFirm" />
+		<put-attribute name="heroArea" value="/WEB-INF/home/body.jsp"/>
+		<put-attribute name="body"
+			value="/home/dsDichVu.jsp" />
+	</definition>
+	<definition name="thanhVien"
+		extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Dịch vụ - ZNA LawFirm" />
+		<put-attribute name="heroArea" value="/WEB-INF/home/body.jsp"/>
+		<put-attribute name="body"
+			value="/home/ThanhVien.jsp" />
+	</definition>
+	<definition name="chiTietDichVu"
+		extends="baseLayoutHome">
+		<put-attribute name="title"
+			value="Dịch vụ - ZNA LawFirm" />
+		<put-attribute name="heroArea" value="/WEB-INF/home/body.jsp"/>
+		<put-attribute name="body"
+			value="/home/ChiTietDichVu.jsp" />
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="global" />
+	<package name="stanford"
+		extends="struts-default,tiles-default,json-default">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<!-- Khai bao interceptor dinh nghia -->
+		<interceptors>
+			<interceptor name="authorizationinterceptor"
+				class="vn.com.stanford.technews.interceptor.AuthorizationInterceptor" />
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authorizationinterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<action name = "dangNhap" class ="vn.com.stanford.action.LoginAction">
+		<result name ="input">/admin/Login.jsp</result>
+		</action>
+		<action name = "dangNhapHeThong" class="vn.com.stanford.action.LoginAction" method="dangNhapHeThong">
+		<result name ="success" type="tiles">test</result>
+		<result name="input">/admin/Login.jsp</result>
+		</action> 
+		<action name="test" class="vn.com.stanford.action.TestAction">
+			<result name="success" type="tiles">test</result>
+		</action>
+		<action name="quanlyphanquyen" class="vn.com.stanford.action.QuanLyPhanQuyenAction" method="hienThiVaiTro">
+			<result name="success" type="tiles">quanLyPhanQuyen</result>
+		</action>
+		<action name="phanQuyenTheoVaiTro" class="vn.com.stanford.action.QuanLyPhanQuyenAction" method="hienThiPhanQuyen">
+			<result name="success" type="tiles">quanLyPhanQuyen</result>
+		</action>
+		         
+		<action name="danhSachBaiViet" class="vn.com.stanford.action.BaiVietAction" method="danhSachBaiViet">
+			<interceptor-ref name="authorizationinterceptor" />
+			<result name="success" type="tiles">quanLyBaiViet</result>
+		</action>
+		<action name="chiTietBaiViet" class="vn.com.stanford.action.BaiVietAction" method="chiTietThongTinBaiViet">
+			<result name="success" type="tiles">baiVietAdd</result>
+		</action>
+		<action name="themMoiCapNhatBaiViet" class="vn.com.stanford.action.BaiVietAction" method="themMoiCapNhatBaiViet">
+			<result type="redirectAction">admin/danhSachBaiViet</result>
+		</action>
+		<action name="xoaBaiViet" class="vn.com.stanford.action.BaiVietAction" method="xoaBaiViet">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="dsNhatKy" class="vn.com.stanford.action.NhatKyAction">
+			<interceptor-ref name="authorizationinterceptor" />
+			<result name="success" type="tiles">dsNhatKy</result>
+		</action>
+		<action name="chiTietNhatKy" class="vn.com.stanford.action.NhatKyAction" method="chiTietThongTinNhatKy">
+			<result name="success" type="tiles">nhatKyDetail</result>
+		</action>
+		<action name="xoaNhatKy" class="vn.com.stanford.action.NhatKyAction" method="xoaNhatKy">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="dsChuDe" class="vn.com.stanford.action.ChuDeAction">
+			<interceptor-ref name="authorizationinterceptor" />
+			<result name="success" type="tiles">dsChuDe</result>
+		</action>
+		<action name="chiTietChuDe" class="vn.com.stanford.action.ChuDeAction" method="chiTietThongTinChuDe">
+			<result name="success" type="tiles">chuDeDetail</result>
+		</action>
+		<action name="xoaChuDe" class="vn.com.stanford.action.ChuDeAction" method="xoaChuDe">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="themMoiCapNhatChuDe" class="vn.com.stanford.action.ChuDeAction" method="themMoiCapNhat">
+			<result type="redirectAction">admin/dsChuDe</result>
+		</action>
+		<action name="trangChu" class="vn.com.stanford.action.TrangChuAction">
+			<result name="success" type="tiles">trangChu</result>
+		</action>
+		<action name="dsLuatSu" class="vn.com.stanford.action.LuatSuAction" method="danhSachLuatSu">
+			<result name="success" type="tiles">dsluatsu</result>
+		</action>
+		<action name="chiTietLuatSu" class="vn.com.stanford.action.LuatSuAction" method="chiTietThongTinLuatSu">
+			<result name="success" type="tiles">luatsuadd</result>
+		</action>
+		<action name="xoaLuatSu" class="vn.com.stanford.action.LuatSuAction" method="xoaLuatSu">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="themMoiCapNhatLuatSu" class="vn.com.stanford.action.LuatSuAction" method="themMoiCapNhatLuatsu">
+			<result type="redirectAction">admin/dsLuatSu</result>
+		</action>
+		<action name="contact" class="vn.com.stanford.action.ContactAction">
+			<result name="success" type="tiles">hienThiLienHe</result>
+		</action>
+		<action name="themMoiContact" class="vn.com.stanford.action.ContactAction" method="themContact">
+			<result type="redirectAction">home/contact</result>
+			<result name="input">home/contact</result>
+		</action>
+		<action name="aboutUs" class="vn.com.stanford.action.TrangChuAction" method="gioiThieu">
+			<result name="success" type="tiles">gioiThieu</result>
+		</action>
+		<action name="dsDichVu" class="vn.com.stanford.action.TrangChuAction" method="dichVu">
+			<result name="success" type="tiles">dsDichVu</result>
+		</action>
+		<action name="chiTietThanhVien" class="vn.com.stanford.action.LuatSuAction" method="chiTietThongTinLuatSu1">
+			<result name="success" type="tiles">thanhVien</result>
+		</action>
+		<action name="chiTietDichVu" class="vn.com.stanford.action.TrangChuAction" method="chiTietDichVu">
+			<result name="success" type="tiles">chiTietDichVu</result>
+		</action>
+		<action name="dscontact"
+			class="vn.com.stanford.action.ContactAction"> 
+			<result name="success" type="tiles">dsContact</result>
+		</action>
+		<action name="chiTietContact"
+			class="vn.com.stanford.action.ContactAction"
+			method="chiTietThongTinContact">
+			<result name="success" type="tiles">chiTietContact</result>
+		</action>
+		<action name="xoaContact"
+			class="vn.com.stanford.action.ContactAction"
+			method="xoaContact">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>
